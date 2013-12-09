@@ -186,6 +186,6 @@
     <value>http://www.zero-project.gr/</value>
   </data>
   <data name="AboutPage_LegalRun_Text" xml:space="preserve">
-    <value>The video oceantrip-small.mp4 used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license.</value>
+    <value>The underwater background video used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license.</value>
   </data>
 </root>

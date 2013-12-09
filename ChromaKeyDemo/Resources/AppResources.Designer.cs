@@ -142,7 +142,7 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The video oceantrip-small.mp4 used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license..
+        ///   Looks up a localized string similar to The underwater background video used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license..
         /// </summary>
         public static string AboutPage_LegalRun_Text {
             get {
