@@ -120,7 +120,16 @@ License
     
     Nokia Corporation retains the right to make changes to this document at any
     time, without notice.
-  
+
+
+Background video attribution
+----------------------------
+
+The video oceantrip-small.mp4 used in this application is a short clip from
+http://www.youtube.com/watch?v=nzgfOBTNye0. The original video is copyright of the
+"zero-project" (http://www.zero-project.gr/) and licensed under the Creative Commons
+Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).
+
 
 Version history
 ---------------
