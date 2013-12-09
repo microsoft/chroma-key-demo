@@ -135,6 +135,8 @@
     </Content>
     <Content Include="Assets\Graphics\Background.png" />
     <Content Include="Assets\Tiles\IconicTile.png" />
+    <Content Include="Assets\Video\oceantrip-small.mp4" />
+    <None Include="Assets\Video\oceantrip-small.txt" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

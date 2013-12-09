@@ -64,12 +64,22 @@ namespace ChromaKeyDemo.Pages
 
             Initialize();
 
+            if (BackgroundMediaElement.Visibility == Visibility.Visible)
+            {
+                BackgroundMediaElement.Play();
+            }
+
             _timer.Start();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
+
+            if (BackgroundMediaElement.Visibility == Visibility.Visible)
+            {
+                BackgroundMediaElement.Stop();
+            }
 
             Uninitialize();
         }
@@ -118,7 +128,7 @@ namespace ChromaKeyDemo.Pages
 
             FilteredImage.Source = _bitmap;
 
-            _color = (Color)Application.Current.Resources["PhoneAccentColor"];
+            _color = Color.FromArgb(0xFF, 0xFF, 0xFF, 0xFF);
 
             ColorBorder.Background = new SolidColorBrush(_color);
 
@@ -210,15 +220,6 @@ namespace ChromaKeyDemo.Pages
             ColorBorder.Background = new SolidColorBrush(_color);
         }
 
-        private async void FilteredImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            var point = e.GetPosition(FilteredImage);
-
-            _color = await PickColorFromImageAsync(FilteredImage, point);
-
-            ColorBorder.Background = new SolidColorBrush(_color);
-        }
-
         private async Task<Color> PickColorFromImageAsync(FrameworkElement element, Point point)
         {
             var bitmap = new WriteableBitmap((int)element.ActualWidth, (int)element.ActualHeight);
@@ -248,6 +249,25 @@ namespace ChromaKeyDemo.Pages
 
                 return color;
             }
+        }
+
+        private async void FilteredImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (BackgroundMediaElement.Visibility == Visibility.Collapsed)
+            {
+                BackgroundMediaElement.Play();
+                BackgroundMediaElement.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                BackgroundMediaElement.Stop();
+                BackgroundMediaElement.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void BackgroundMediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            BackgroundMediaElement.Play();
         }
     }
 }

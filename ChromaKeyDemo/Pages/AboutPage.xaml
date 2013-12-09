@@ -67,6 +67,7 @@
                 <Paragraph x:Name="AboutParagraph"/>
                 <Paragraph x:Name="GuideParagraph"/>
                 <Paragraph x:Name="ProjectParagraph"/>
+                <Paragraph x:Name="LegalParagraph"/>
             </RichTextBox>
         </Grid>
     </Grid>

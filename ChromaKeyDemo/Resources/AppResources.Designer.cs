@@ -79,11 +79,74 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creative Commons 3.0 Unported.
+        /// </summary>
+        public static string AboutPage_Hyperlink_CCBY30_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_CCBY30_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://creativecommons.org/licenses/by/3.0/.
+        /// </summary>
+        public static string AboutPage_Hyperlink_CCBY30_Url {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_CCBY30_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://github.com/nokia-developer/chroma-key-demo/.
         /// </summary>
-        public static string AboutPage_Hyperlink_Project {
+        public static string AboutPage_Hyperlink_Project_Url {
             get {
-                return ResourceManager.GetString("AboutPage_Hyperlink_Project", resourceCulture);
+                return ResourceManager.GetString("AboutPage_Hyperlink_Project_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ocean Trip.
+        /// </summary>
+        public static string AboutPage_Hyperlink_VideoSource_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_VideoSource_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.youtube.com/watch?v=nzgfOBTNye0.
+        /// </summary>
+        public static string AboutPage_Hyperlink_VideoSource_Url {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_VideoSource_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to zero-project.
+        /// </summary>
+        public static string AboutPage_Hyperlink_ZeroProject_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_ZeroProject_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.zero-project.gr/.
+        /// </summary>
+        public static string AboutPage_Hyperlink_ZeroProject_Url {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_ZeroProject_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The video oceantrip-small.mp4 used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license..
+        /// </summary>
+        public static string AboutPage_LegalRun_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_LegalRun_Text", resourceCulture);
             }
         }
         
@@ -151,7 +214,7 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filtered result (selected color made transparent).
+        ///   Looks up a localized string similar to Filtered result (tap to toggle transparency/video).
         /// </summary>
         public static string MainPage_FilteredLabel {
             get {

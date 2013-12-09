@@ -60,25 +60,94 @@ namespace ChromaKeyDemo.Pages
             var projectRunSpan1 = new Run();
             projectRunSpan1.Text = projectRunTextSpans[0];
 
-            var projectsLink = new Hyperlink();
-            projectsLink.Inlines.Add(AppResources.AboutPage_Hyperlink_Project);
-            projectsLink.Click += ProjectsLink_Click;
-            //projectsLink.Foreground = new SolidColorBrush((Color)App.Current.Resources["MagnifierAppForegroundColor"]);
-            //projectsLink.MouseOverForeground = new SolidColorBrush((Color)App.Current.Resources["MagnifierAppAccentColor"]);
-
             var projectRunSpan2 = new Run();
             projectRunSpan2.Text = projectRunTextSpans[1] + "\n";
+
+            var projectsLink = new Hyperlink();
+            projectsLink.Inlines.Add(AppResources.AboutPage_Hyperlink_Project_Url);
+            projectsLink.Click += ProjectsLink_Click;
 
             ProjectParagraph.Inlines.Add(projectRunSpan1);
             ProjectParagraph.Inlines.Add(projectsLink);
             ProjectParagraph.Inlines.Add(projectRunSpan2);
+
+            // Legal text
+
+            // The video oceantrip-small.mp4 used in this application is a short clip from {0}.
+            // The original video is copyright of the "zero-project" ({1}) and licensed under the
+            // Creative Commons Attribution 3.0 Unported (CC BY 3.0) license ({2}).
+
+            var legalRunText = AppResources.AboutPage_LegalRun_Text;
+            var legalRunTextSpans = legalRunText.Split(new string[] { "{0}", "{1}", "{2}" }, StringSplitOptions.None);
+
+            var legalRunSpan1 = new Run();
+            legalRunSpan1.Text = legalRunTextSpans[0];
+
+            var legalRunSpan2 = new Run();
+            legalRunSpan2.Text = legalRunTextSpans[1] + "\n";
+
+            var legalRunSpan3 = new Run();
+            legalRunSpan3.Text = legalRunTextSpans[2] + "\n";
+
+            var legalRunSpan4 = new Run();
+            legalRunSpan4.Text = legalRunTextSpans[3] + "\n";
+
+            var videoSourceLink = new Hyperlink();
+            videoSourceLink.Inlines.Add(AppResources.AboutPage_Hyperlink_VideoSource_Text);
+            videoSourceLink.Click += VideoSourceLink_Click;
+
+            var zeroProjectLink = new Hyperlink();
+            zeroProjectLink.Inlines.Add(AppResources.AboutPage_Hyperlink_ZeroProject_Text);
+            zeroProjectLink.Click += ZeroProjectLink_Click;
+
+            var creativeCommonsLink = new Hyperlink();
+            creativeCommonsLink.Inlines.Add(AppResources.AboutPage_Hyperlink_CCBY30_Text);
+            creativeCommonsLink.Click += CreativeCommonsLink_Click;
+
+            LegalParagraph.Inlines.Add(legalRunSpan1);
+            LegalParagraph.Inlines.Add(videoSourceLink);
+            LegalParagraph.Inlines.Add(legalRunSpan2);
+            LegalParagraph.Inlines.Add(zeroProjectLink);
+            LegalParagraph.Inlines.Add(legalRunSpan3);
+            LegalParagraph.Inlines.Add(creativeCommonsLink);
+            LegalParagraph.Inlines.Add(legalRunSpan4);
         }
 
         private void ProjectsLink_Click(object sender, RoutedEventArgs e)
         {
             var webBrowserTask = new WebBrowserTask()
             {
-                Uri = new Uri(AppResources.AboutPage_Hyperlink_Project, UriKind.Absolute)
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_Project_Url, UriKind.Absolute)
+            };
+
+            webBrowserTask.Show();
+        }
+
+        private void VideoSourceLink_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowserTask = new WebBrowserTask()
+            {
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_VideoSource_Url, UriKind.Absolute)
+            };
+
+            webBrowserTask.Show();
+        }
+
+        private void ZeroProjectLink_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowserTask = new WebBrowserTask()
+            {
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_ZeroProject_Url, UriKind.Absolute)
+            };
+
+            webBrowserTask.Show();
+        }
+
+        private void CreativeCommonsLink_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowserTask = new WebBrowserTask()
+            {
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_CCBY30_Url, UriKind.Absolute)
             };
 
             webBrowserTask.Show();

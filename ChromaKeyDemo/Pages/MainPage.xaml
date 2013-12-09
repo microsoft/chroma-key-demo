@@ -101,11 +101,18 @@
                         <ImageBrush ImageSource="/Assets/Graphics/Background.png" Stretch="UniformToFill"/>
                     </Border.Background>
 
-                    <Image x:Name="FilteredImage" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Tap="FilteredImage_Tap">
-                        <Image.RenderTransform>
-                            <CompositeTransform x:Name="FilteredImageTransform"/>
-                        </Image.RenderTransform>
-                    </Image>
+                    <Grid >
+                        <MediaElement x:Name="BackgroundMediaElement" Stretch="Fill" Volume="0"
+                                      Source="/Assets/Video/oceantrip-small.mp4"
+                                      MediaEnded="BackgroundMediaElement_MediaEnded"
+                                      Visibility="Collapsed"/>
+
+                        <Image x:Name="FilteredImage" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Tap="FilteredImage_Tap">
+                            <Image.RenderTransform>
+                                <CompositeTransform x:Name="FilteredImageTransform"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
                 </Border>
             </Grid>
 

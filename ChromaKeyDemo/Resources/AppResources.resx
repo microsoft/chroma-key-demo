@@ -135,7 +135,7 @@
     <value>Color distance</value>
   </data>
   <data name="MainPage_FilteredLabel" xml:space="preserve">
-    <value>Filtered result (selected color made transparent)</value>
+    <value>Filtered result (tap to toggle transparency/video)</value>
   </data>
   <data name="MainPage_MaximumDistanceLabel" xml:space="preserve">
     <value>max</value>
@@ -155,7 +155,7 @@
   <data name="AboutPage_GuideRun_Text" xml:space="preserve">
     <value>Tap on either the original viewfinder or on the filtered result image to select a chroma key color (for example a green backdrop canvas) and use the color distance slider to adjust the threshold of the color range to be made transparent.</value>
   </data>
-  <data name="AboutPage_Hyperlink_Project" xml:space="preserve">
+  <data name="AboutPage_Hyperlink_Project_Url" xml:space="preserve">
     <value>http://github.com/nokia-developer/chroma-key-demo/</value>
   </data>
   <data name="AboutPage_ProjectRun_Text" xml:space="preserve">
@@ -166,5 +166,26 @@
   </data>
   <data name="AboutPage_VersionRun_Text" xml:space="preserve">
     <value>Chroma Key Demo version {0}</value>
+  </data>
+  <data name="AboutPage_Hyperlink_CCBY30_Text" xml:space="preserve">
+    <value>Creative Commons 3.0 Unported</value>
+  </data>
+  <data name="AboutPage_Hyperlink_CCBY30_Url" xml:space="preserve">
+    <value>http://creativecommons.org/licenses/by/3.0/</value>
+  </data>
+  <data name="AboutPage_Hyperlink_VideoSource_Text" xml:space="preserve">
+    <value>Ocean Trip</value>
+  </data>
+  <data name="AboutPage_Hyperlink_VideoSource_Url" xml:space="preserve">
+    <value>http://www.youtube.com/watch?v=nzgfOBTNye0</value>
+  </data>
+  <data name="AboutPage_Hyperlink_ZeroProject_Text" xml:space="preserve">
+    <value>zero-project</value>
+  </data>
+  <data name="AboutPage_Hyperlink_ZeroProject_Url" xml:space="preserve">
+    <value>http://www.zero-project.gr/</value>
+  </data>
+  <data name="AboutPage_LegalRun_Text" xml:space="preserve">
+    <value>The video oceantrip-small.mp4 used in this application is a short clip from {0}. The original video is copyright of the {1} and licensed under the {2} license.</value>
   </data>
 </root>
