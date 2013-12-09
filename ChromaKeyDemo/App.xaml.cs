@@ -1,12 +1,13 @@
-﻿using System;
+﻿using ChromaKeyDemo.Resources;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System;
 using System.Diagnostics;
-using System.Resources;
+using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using ChromaKeyDemo.Resources;
+using Windows.Phone.Media.Capture;
 
 namespace ChromaKeyDemo
 {
@@ -17,6 +18,8 @@ namespace ChromaKeyDemo
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
+
+        public static AudioVideoCaptureDevice Camera { get; set; }
 
         /// <summary>
         /// Constructor for the Application object.
@@ -61,24 +64,52 @@ namespace ChromaKeyDemo
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var resolution = AudioVideoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).Last();
+
+            var task = AudioVideoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution).AsTask();
+
+            task.Wait();
+
+            Camera = task.Result;
+
+            Camera.SetPreviewResolutionAsync(resolution).AsTask().Wait();
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            var resolution = AudioVideoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).Last();
+
+            var task = AudioVideoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution).AsTask();
+
+            task.Wait();
+
+            Camera = task.Result;
+
+            Camera.SetPreviewResolutionAsync(resolution).AsTask().Wait();
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            if (Camera != null)
+            {
+                Camera.Dispose();
+                Camera = null;
+            }
         }
 
         // Code to execute when the application is closing (eg, user hit Back)
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            if (Camera != null)
+            {
+                Camera.Dispose();
+                Camera = null;
+            }
         }
 
         // Code to execute if a navigation fails

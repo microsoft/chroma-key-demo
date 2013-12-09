@@ -30,7 +30,6 @@ namespace ChromaKeyDemo.Pages
         private static int RESOLUTION_HEIGHT = 480;
         private static CameraSensorLocation SENSOR_LOCATION = CameraSensorLocation.Back;
 
-        private AudioVideoCaptureDevice _device = null;
         private WriteableBitmap _bitmap = null;
         private DispatcherTimer _timer = null;
         private Color _color = new Color();
@@ -93,23 +92,14 @@ namespace ChromaKeyDemo.Pages
         {
             // Initialize camera
 
-            var resolution = new Windows.Foundation.Size(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
+            var rotation = SENSOR_LOCATION == CameraSensorLocation.Back ? App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
 
-            var task = AudioVideoCaptureDevice.OpenAsync(SENSOR_LOCATION, resolution).AsTask();
-
-            task.Wait();
-
-            _device = task.Result;
-            _device.SetPreviewResolutionAsync(resolution).AsTask().Wait();
-
-            var rotation = SENSOR_LOCATION == CameraSensorLocation.Back ? _device.SensorRotationInDegrees : -_device.SensorRotationInDegrees;
-
-            ViewfinderBrush.SetSource(_device);
+            ViewfinderBrush.SetSource(App.Camera);
             ViewfinderBrushTransform.Rotation = rotation;
 
             // Setup image processing pipeline
 
-            _source = new CameraPreviewImageSource(_device);
+            _source = new CameraPreviewImageSource(App.Camera);
 
             _rotationFilter = new RotationFilter(rotation);
 
@@ -172,12 +162,6 @@ namespace ChromaKeyDemo.Pages
                 _source.Dispose();
                 _source = null;
             }
-
-            if (_device != null)
-            {
-                _device.Dispose();
-                _device = null;
-            }
         }
 
         private async void DispatcherTimer_Tick(object sender, System.EventArgs e)
@@ -224,7 +208,7 @@ namespace ChromaKeyDemo.Pages
         {
             var bitmap = new WriteableBitmap((int)element.ActualWidth, (int)element.ActualHeight);
 
-            using (var source = new CameraPreviewImageSource(_device))
+            using (var source = new CameraPreviewImageSource(App.Camera))
             using (var effect = new FilterEffect(source))
             using (var renderer = new WriteableBitmapRenderer(effect, bitmap, OutputOption.Stretch))
             {
