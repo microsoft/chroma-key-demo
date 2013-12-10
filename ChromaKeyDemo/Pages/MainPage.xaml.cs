@@ -1,9 +1,11 @@
-﻿/*
- * Copyright © 2013 Nokia Corporation. All rights reserved.
+﻿/**
+ * Copyright (c) 2013 Nokia Corporation. All rights reserved.
+ * 
  * Nokia and Nokia Connecting People are registered trademarks of Nokia Corporation. 
  * Other product and company names mentioned herein may be trademarks
- * or trade names of their respective owners. 
- * See LICENSE.TXT for license information.
+ * or trade names of their respective owners.
+ * 
+ * See the license text file for license information.
  */
 
 using ChromaKeyDemo.Resources;
@@ -26,22 +28,21 @@ namespace ChromaKeyDemo.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private static int RESOLUTION_WIDTH = 640;
-        private static int RESOLUTION_HEIGHT = 480;
-        private static CameraSensorLocation SENSOR_LOCATION = CameraSensorLocation.Back;
+        private const int ResolutionWidth = 640;
+        private const int ResolutionHeight = 480;
+        private const CameraSensorLocation DefaultSensorLocation = CameraSensorLocation.Back;
 
         private WriteableBitmap _bitmap = null;
         private DispatcherTimer _timer = null;
         private Color _color = new Color();
-        private Semaphore _semaphore = new Semaphore(1, 1);
-        private bool _initialized = false;
-
         private CameraPreviewImageSource _source = null;
         private WriteableBitmapRenderer _renderer = null;
         private FilterEffect _effect = null;
         private IList<IFilter> _filters = null;
         private ChromaKeyFilter _chromaKeyFilter = null;
         private RotationFilter _rotationFilter = null;
+        private CameraSensorLocation _sensorLocation = DefaultSensorLocation;
+        private bool _initialized = false;
 
         public MainPage()
         {
@@ -92,7 +93,7 @@ namespace ChromaKeyDemo.Pages
         {
             // Initialize camera
 
-            var rotation = SENSOR_LOCATION == CameraSensorLocation.Back ? App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
+            var rotation = _sensorLocation == CameraSensorLocation.Back ? App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
 
             ViewfinderBrush.SetSource(App.Camera);
             ViewfinderBrushTransform.Rotation = rotation;
@@ -112,7 +113,7 @@ namespace ChromaKeyDemo.Pages
             _effect = new FilterEffect(_source);
             _effect.Filters = _filters;
 
-            _bitmap = new WriteableBitmap(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
+            _bitmap = new WriteableBitmap(ResolutionWidth, ResolutionHeight);
 
             _renderer = new WriteableBitmapRenderer(_effect, _bitmap, OutputOption.Stretch);
 
@@ -219,7 +220,10 @@ namespace ChromaKeyDemo.Pages
 
                 await renderer.RenderAsync();
 
-                //System.Diagnostics.Debug.WriteLine("Bitmap({0}, {1}) - Point({2}, {3})", bitmap.PixelWidth, bitmap.PixelHeight, point.X, point.Y);
+                /*
+                System.Diagnostics.Debug.WriteLine("Bitmap({0}, {1}) - Point({2}, {3})",
+                    bitmap.PixelWidth, bitmap.PixelHeight, point.X, point.Y);
+                */
 
                 var picked = bitmap.Pixels[((int)point.Y) * bitmap.PixelWidth + ((int)point.X)];
 
