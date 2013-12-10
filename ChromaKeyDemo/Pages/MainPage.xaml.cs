@@ -28,10 +28,6 @@ namespace ChromaKeyDemo.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private const int ResolutionWidth = 640;
-        private const int ResolutionHeight = 480;
-        private const CameraSensorLocation DefaultSensorLocation = CameraSensorLocation.Back;
-
         private WriteableBitmap _bitmap = null;
         private DispatcherTimer _timer = null;
         private Color _color = new Color();
@@ -41,7 +37,6 @@ namespace ChromaKeyDemo.Pages
         private IList<IFilter> _filters = null;
         private ChromaKeyFilter _chromaKeyFilter = null;
         private RotationFilter _rotationFilter = null;
-        private CameraSensorLocation _sensorLocation = DefaultSensorLocation;
         private bool _initialized = false;
 
         public MainPage()
@@ -93,7 +88,8 @@ namespace ChromaKeyDemo.Pages
         {
             // Initialize camera
 
-            var rotation = _sensorLocation == CameraSensorLocation.Back ? App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
+            var rotation = App.Camera.SensorLocation == CameraSensorLocation.Back ?
+                App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
 
             ViewfinderBrush.SetSource(App.Camera);
             ViewfinderBrushTransform.Rotation = rotation;
@@ -101,9 +97,7 @@ namespace ChromaKeyDemo.Pages
             // Setup image processing pipeline
 
             _source = new CameraPreviewImageSource(App.Camera);
-
             _rotationFilter = new RotationFilter(rotation);
-
             _chromaKeyFilter = new ChromaKeyFilter();
 
             _filters = new List<IFilter>();
@@ -113,8 +107,7 @@ namespace ChromaKeyDemo.Pages
             _effect = new FilterEffect(_source);
             _effect.Filters = _filters;
 
-            _bitmap = new WriteableBitmap(ResolutionWidth, ResolutionHeight);
-
+            _bitmap = new WriteableBitmap((int)App.Camera.PreviewResolution.Width, (int)App.Camera.PreviewResolution.Height);
             _renderer = new WriteableBitmapRenderer(_effect, _bitmap, OutputOption.Stretch);
 
             FilteredImage.Source = _bitmap;
