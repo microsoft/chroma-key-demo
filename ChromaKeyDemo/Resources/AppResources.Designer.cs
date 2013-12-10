@@ -70,7 +70,7 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tap on either the original viewfinder or on the filtered result image to select a chroma key color (for example a green backdrop canvas) and use the color distance slider to adjust the threshold of the color range to be made transparent..
+        ///   Looks up a localized string similar to Tap on the upper original viewfinder to select a chroma key color (for example a green backdrop canvas) and use the color distance slider to adjust the threshold of the color range to be made transparent. Tap on the lower modified viewfinder to toggle between a video background and a &quot;transparent&quot; background..
         /// </summary>
         public static string AboutPage_GuideRun_Text {
             get {
