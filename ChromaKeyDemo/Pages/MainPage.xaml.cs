@@ -106,8 +106,6 @@ namespace ChromaKeyDemo.Pages
             var rotation = App.Camera.SensorLocation == CameraSensorLocation.Back ?
                 App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
 
-            //App.Camera.SetProperty(KnownCameraGeneralProperties.EncodeWithOrientation, rotation);
-            //ViewfinderCanvas.RenderTransform = new RotateTransform() { Angle = rotation, CenterX = ViewfinderCanvas.Width / 2, CenterY = ViewfinderCanvas.Height / 2 };
             ViewfinderBrush.SetSource(App.Camera);
             ViewfinderBrushTransform.Rotation = rotation;
 
