@@ -15,8 +15,6 @@ using Microsoft.Phone.Shell;
 using Nokia.Graphics.Imaging;
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -38,6 +36,7 @@ namespace ChromaKeyDemo.Pages
         private ChromaKeyFilter _chromaKeyFilter = null;
         private RotationFilter _rotationFilter = null;
         private bool _initialized = false;
+        private bool _rendering = false;
 
         public MainPage()
         {
@@ -59,17 +58,18 @@ namespace ChromaKeyDemo.Pages
 
             Initialize();
 
+            BackgroundMediaElement.Source = new Uri("/Assets/Video/oceantrip-small.mp4", UriKind.Relative);
+
             if (BackgroundMediaElement.Visibility == Visibility.Visible)
             {
+                BackgroundMediaElement.Position = TimeSpan.Zero;
                 BackgroundMediaElement.Play();
             }
-
-            _timer.Start();
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            base.OnNavigatedFrom(e);
+            base.OnNavigatingFrom(e);
 
             if (BackgroundMediaElement.Visibility == Visibility.Visible)
             {
@@ -120,6 +120,7 @@ namespace ChromaKeyDemo.Pages
 
             _timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(10) };
             _timer.Tick += DispatcherTimer_Tick;
+            _timer.Start();
 
             _initialized = true;
         }
@@ -131,6 +132,7 @@ namespace ChromaKeyDemo.Pages
             if (_timer != null)
             {
                 _timer.Stop();
+                _timer.Tick -= DispatcherTimer_Tick;
                 _timer = null;
             }
 
@@ -160,20 +162,10 @@ namespace ChromaKeyDemo.Pages
 
         private async void DispatcherTimer_Tick(object sender, System.EventArgs e)
         {
-            _timer.Stop();
-
-            await RenderFilteredImage();
-
-            if (_initialized)
+            if (_initialized && !_rendering)
             {
-                _timer.Start();
-            }
-        }
+                _rendering = true;
 
-        private async Task RenderFilteredImage()
-        {
-            if (_initialized)
-            {
                 try
                 {
                     _chromaKeyFilter.Color = Windows.UI.Color.FromArgb(_color.A, _color.R, _color.G, _color.B);
@@ -186,21 +178,15 @@ namespace ChromaKeyDemo.Pages
                 catch (Exception)
                 {
                 }
+
+                _rendering = false;
             }
         }
 
         private async void ViewfinderCanvas_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             var point = e.GetPosition(ViewfinderCanvas);
-
-            _color = await PickColorFromImageAsync(ViewfinderCanvas, point);
-
-            ColorBorder.Background = new SolidColorBrush(_color);
-        }
-
-        private async Task<Color> PickColorFromImageAsync(FrameworkElement element, Point point)
-        {
-            var bitmap = new WriteableBitmap((int)element.ActualWidth, (int)element.ActualHeight);
+            var bitmap = new WriteableBitmap((int)ViewfinderCanvas.ActualWidth, (int)ViewfinderCanvas.ActualHeight);
 
             using (var source = new CameraPreviewImageSource(App.Camera))
             using (var effect = new FilterEffect(source))
@@ -213,29 +199,25 @@ namespace ChromaKeyDemo.Pages
 
                 await renderer.RenderAsync();
 
-                /*
-                System.Diagnostics.Debug.WriteLine("Bitmap({0}, {1}) - Point({2}, {3})",
-                    bitmap.PixelWidth, bitmap.PixelHeight, point.X, point.Y);
-                */
-
                 var picked = bitmap.Pixels[((int)point.Y) * bitmap.PixelWidth + ((int)point.X)];
 
-                var color = new Color
+                _color = new Color
                 {
                     A = 0xFF,
                     R = (byte)((picked & 0x00FF0000) >> 16),
                     G = (byte)((picked & 0x0000FF00) >> 8),
                     B = (byte)(picked & 0x000000FF)
                 };
-
-                return color;
             }
+
+            ColorBorder.Background = new SolidColorBrush(_color);
         }
 
-        private async void FilteredImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void FilteredImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             if (BackgroundMediaElement.Visibility == Visibility.Collapsed)
             {
+                BackgroundMediaElement.Position = TimeSpan.Zero;
                 BackgroundMediaElement.Play();
                 BackgroundMediaElement.Visibility = Visibility.Visible;
             }
@@ -248,7 +230,11 @@ namespace ChromaKeyDemo.Pages
 
         private void BackgroundMediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
-            BackgroundMediaElement.Play();
+            if (_initialized)
+            {
+                BackgroundMediaElement.Position = TimeSpan.Zero;
+                BackgroundMediaElement.Play();
+            }
         }
     }
 }

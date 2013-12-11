@@ -105,9 +105,8 @@
 
                     <Grid >
                         <MediaElement x:Name="BackgroundMediaElement" Stretch="Fill" Volume="0"
-                                      Source="/Assets/Video/oceantrip-small.mp4"
                                       MediaEnded="BackgroundMediaElement_MediaEnded"
-                                      Visibility="Collapsed"/>
+                                      Visibility="Visible"/>
 
                         <Image x:Name="FilteredImage" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Tap="FilteredImage_Tap">
                             <Image.RenderTransform>
