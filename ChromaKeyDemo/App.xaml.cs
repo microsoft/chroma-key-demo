@@ -19,7 +19,7 @@ namespace ChromaKeyDemo
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        public static AudioVideoCaptureDevice Camera { get; set; }
+        public static PhotoCaptureDevice Camera { get; set; }
 
         /// <summary>
         /// Constructor for the Application object.
@@ -64,14 +64,12 @@ namespace ChromaKeyDemo
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            var resolution = AudioVideoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).Last();
-
-            var task = AudioVideoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution).AsTask();
+            var resolution = new Windows.Foundation.Size(640, 480);
+            var task = PhotoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution).AsTask();
 
             task.Wait();
 
             Camera = task.Result;
-
             Camera.SetPreviewResolutionAsync(resolution).AsTask().Wait();
         }
 
@@ -79,14 +77,12 @@ namespace ChromaKeyDemo
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            var resolution = AudioVideoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).Last();
-
-            var task = AudioVideoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution).AsTask();
+            var resolution = new Windows.Foundation.Size(640, 480);
+            var task = PhotoCaptureDevice.OpenAsync(CameraSensorLocation.Back, new Windows.Foundation.Size(640, 480)).AsTask();
 
             task.Wait();
 
             Camera = task.Result;
-
             Camera.SetPreviewResolutionAsync(resolution).AsTask().Wait();
         }
 

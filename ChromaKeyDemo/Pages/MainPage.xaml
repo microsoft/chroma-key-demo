@@ -77,15 +77,18 @@
                            Text="{Binding Path=LocalizedResources.MainPage_ViewfinderLabel, Source={StaticResource LocalizedStrings}}"/>
 
                 <Border Grid.Row="1" BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="2">
-                    <Canvas x:Name="ViewfinderCanvas" Tap="ViewfinderCanvas_Tap">
-                        <Canvas.Background>
-                            <VideoBrush x:Name="ViewfinderBrush" Stretch="Fill">
-                                <VideoBrush.RelativeTransform>
-                                    <CompositeTransform x:Name="ViewfinderBrushTransform" CenterX="0.5" CenterY="0.5"/>
-                                </VideoBrush.RelativeTransform>
-                            </VideoBrush>
-                        </Canvas.Background>
-                    </Canvas>
+                    <Grid x:Name="ViewfinderCanvasArea">
+                        <Canvas x:Name="ViewfinderCanvas" Tap="ViewfinderCanvas_Tap"
+                                 Width="428" Height="570" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Canvas.Background>
+                                <VideoBrush x:Name="ViewfinderBrush" Stretch="Fill">
+                                    <VideoBrush.RelativeTransform>
+                                        <CompositeTransform x:Name="ViewfinderBrushTransform" CenterX="0.5" CenterY="0.5"/>
+                                    </VideoBrush.RelativeTransform>
+                                </VideoBrush>
+                            </Canvas.Background>
+                        </Canvas>
+                    </Grid>
                 </Border>
             </Grid>
 
@@ -103,12 +106,13 @@
                         <ImageBrush ImageSource="/Assets/Graphics/Background.png" Stretch="UniformToFill"/>
                     </Border.Background>
 
-                    <Grid >
+                    <Grid x:Name="FilteredImageArea">
                         <MediaElement x:Name="BackgroundMediaElement" Stretch="Fill" Volume="0"
                                       MediaEnded="BackgroundMediaElement_MediaEnded"
                                       Visibility="Visible"/>
 
-                        <Image x:Name="FilteredImage" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Tap="FilteredImage_Tap">
+                        <Image x:Name="FilteredImage" RenderTransformOrigin="0.5,0.5" Stretch="Fill" Tap="FilteredImage_Tap"
+                                Width="428" Height="570" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Image.RenderTransform>
                                 <CompositeTransform x:Name="FilteredImageTransform"/>
                             </Image.RenderTransform>

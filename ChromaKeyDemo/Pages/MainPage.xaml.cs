@@ -50,6 +50,21 @@ namespace ChromaKeyDemo.Pages
             aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.MenuItems.Add(aboutMenuItem);
+
+            Loaded += MainPage_Loaded;
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewfinderCanvasArea.Clip = new RectangleGeometry()
+            {
+                Rect = new Rect(0, 0, ViewfinderCanvasArea.ActualWidth, ViewfinderCanvasArea.ActualHeight)
+            };
+
+            FilteredImageArea.Clip = new RectangleGeometry()
+            {
+                Rect = new Rect(0, 0, FilteredImageArea.ActualWidth, FilteredImageArea.ActualHeight)
+            };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -91,6 +106,8 @@ namespace ChromaKeyDemo.Pages
             var rotation = App.Camera.SensorLocation == CameraSensorLocation.Back ?
                 App.Camera.SensorRotationInDegrees : - App.Camera.SensorRotationInDegrees;
 
+            //App.Camera.SetProperty(KnownCameraGeneralProperties.EncodeWithOrientation, rotation);
+            //ViewfinderCanvas.RenderTransform = new RotateTransform() { Angle = rotation, CenterX = ViewfinderCanvas.Width / 2, CenterY = ViewfinderCanvas.Height / 2 };
             ViewfinderBrush.SetSource(App.Camera);
             ViewfinderBrushTransform.Rotation = rotation;
 
