@@ -134,4 +134,4 @@ Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/license
 Version history
 ---------------
 
-No releases yet.
+* 1.0: First public release of Chroma Key Demo
