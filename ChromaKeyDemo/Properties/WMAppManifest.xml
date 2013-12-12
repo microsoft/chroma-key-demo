@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{53e504f5-d631-4b59-bd52-06c271d08ff3}" Title="Chroma Key Demo" RuntimeType="Silverlight" Version="0.0.0.0" Genre="apps.normal" Author="Nokia" Description="Chroma Key Demo is a Nokia Developer example demonstrating the use of Nokia Imaging SDK chroma key filter." Publisher="Nokia Developer" PublisherID="{9fe1ff38-889b-4e9c-a533-0070b81c1412}">
+  <App xmlns="" ProductID="{53e504f5-d631-4b59-bd52-06c271d08ff3}" Title="Chroma Key Demo" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Nokia" Description="Chroma Key Demo is a Nokia Developer example demonstrating the use of Nokia Imaging SDK chroma key filter." Publisher="Nokia Developer" PublisherID="{9fe1ff38-889b-4e9c-a533-0070b81c1412}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_ISV_CAMERA" />
