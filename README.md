@@ -10,9 +10,8 @@ Tap on the lower modified viewfinder to toggle between a video background and a 
 This example application is hosted in GitHub:
 https://github.com/nokia-developer/chroma-key-demo/
 
-For more information, visit Nokia Lumia Developer's Library: http://developer.nokia.com/Resources/Library/Lumia/#!nokia-imaging-sdk/sample-projects/chroma-key-demo.html
-
-
+For more information on implementation visit Nokia Lumia Developer's Library:
+http://developer.nokia.com/Resources/Library/Lumia/#!nokia-imaging-sdk/sample-projects/chroma-key-demo.html
 
 Developed with Microsoft Visual Studio Express for Windows Phone 2012.
 
