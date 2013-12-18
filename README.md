@@ -10,6 +10,9 @@ Tap on the lower modified viewfinder to toggle between a video background and a 
 This example application is hosted in GitHub:
 https://github.com/nokia-developer/chroma-key-demo/
 
+For more information, visit Nokia Lumia Developer's Library: http://developer.nokia.com/Resources/Library/Lumia/#!nokia-imaging-sdk/sample-projects/chroma-key-demo.html
+
+
 
 Developed with Microsoft Visual Studio Express for Windows Phone 2012.
 
@@ -74,10 +77,6 @@ Important classes:
 | Class | Description |
 | ----- | ----------- |
 | MainPage | Renders camera live feed to an Image removing selected color from the image. |
-
-For more information, visit Nokia Lumia Developer's Library:
-* http://developer.nokia.com/Resources/Library/Lumia/#!nokia-imaging-sdk/sample-projects/chroma-key-demo.html
-* http://developer.nokia.com/Resources/Library/Lumia/#!nokia-imaging-sdk.html
 
 
 Known issues
