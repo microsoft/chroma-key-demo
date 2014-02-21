@@ -104,10 +104,13 @@ Downloads
 
 | Project | Release | Download |
 | ------- | --------| -------- |
-| Chroma Key Demo | v1.0 | [chroma-key-demo-1.0.zip](https://github.com/nokia-developer/chroma-key-demo/archive/v1.0.zip) |
+| Chroma Key Demo | v1.1 | [chroma-key-demo-1.1.zip](https://github.com/nokia-developer/chroma-key-demo/archive/v1.1.zip) |
 
 
 Version history
 ---------------
+
+* 1.1: Second public release of Chroma Key Demo
+  - Updated to the latest Nokia Imaging SDK version 1.1.177
 
 * 1.0: First public release of Chroma Key Demo
