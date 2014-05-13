@@ -115,12 +115,9 @@ namespace ChromaKeyDemo.Pages
             _rotationFilter = new RotationFilter(rotation);
             _chromaKeyFilter = new ChromaKeyFilter();
 
-            _filters = new List<IFilter>();
-            _filters.Add(_rotationFilter);
-            _filters.Add(_chromaKeyFilter);
+            _filters = new List<IFilter> {_rotationFilter, _chromaKeyFilter};
 
-            _effect = new FilterEffect(_source);
-            _effect.Filters = _filters;
+            _effect = new FilterEffect(_source) {Filters = _filters};
 
             _bitmap = new WriteableBitmap((int)App.Camera.PreviewResolution.Width, (int)App.Camera.PreviewResolution.Height);
             _renderer = new WriteableBitmapRenderer(_effect, _bitmap, OutputOption.Stretch);
