@@ -97,7 +97,7 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://github.com/nokia-developer/chroma-key-demo/.
+        ///   Looks up a localized string similar to http://github.com/Microsoft/chroma-key-demo/.
         /// </summary>
         public static string AboutPage_Hyperlink_Project_Url {
             get {

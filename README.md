@@ -8,7 +8,7 @@ and use the color distance slider to adjust the threshold of the color range to 
 Tap on the lower modified viewfinder to toggle between a video background and a "transparent" background.
 
 This example application is hosted in GitHub:
-https://github.com/nokia-developer/chroma-key-demo/
+https://github.com/Microsoft/chroma-key-demo/
 
 For more information on implementation visit Nokia Lumia Developer's Library:
 http://developer.nokia.com/Resources/Library/Lumia/nokia-imaging-sdk/sample-projects/chroma-key-demo.html
@@ -87,7 +87,7 @@ None.
 License
 -------
 
-See the license text file delivered with this project: https://github.com/nokia-developer/chroma-key-demo/blob/master/License.txt
+See the license text file delivered with this project: https://github.com/Microsoft/chroma-key-demo/blob/master/License.txt
 
 
 Background video attribution
@@ -104,7 +104,7 @@ Downloads
 
 | Project | Release | Download |
 | ------- | --------| -------- |
-| Chroma Key Demo | v1.1 | [chroma-key-demo-1.1.zip](https://github.com/nokia-developer/chroma-key-demo/archive/v1.1.zip) |
+| Chroma Key Demo | v1.1 | [chroma-key-demo-1.1.zip](https://github.com/Microsoft/chroma-key-demo/archive/v1.1.zip) |
 
 
 Version history
