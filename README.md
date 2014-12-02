@@ -1,16 +1,17 @@
 Chroma Key Demo
 ===============
 
-Chroma Key Demo is a Nokia Developer example demonstrating the Nokia Imaging SDK chroma key filter.
+Chroma Key Demo is an example demonstrating the Imaging SDK chroma key filter.
 
-Tap on the upper original viewfinder to select a chroma key color (for example a green backdrop canvas)
-and use the color distance slider to adjust the threshold of the color range to be made transparent.
-Tap on the lower modified viewfinder to toggle between a video background and a "transparent" background.
+Tap on the upper original viewfinder to select a chroma key color (for example a
+green backdrop canvas) and use the color distance slider to adjust the threshold
+of the color range to be made transparent. Tap on the lower modified viewfinder
+to toggle between a video background and a "transparent" background.
 
 This example application is hosted in GitHub:
 https://github.com/Microsoft/chroma-key-demo/
 
-For more information on implementation visit Nokia Lumia Developer's Library:
+For more information on implementation visit Lumia Developer's Library:
 http://developer.nokia.com/Resources/Library/Lumia/nokia-imaging-sdk/sample-projects/chroma-key-demo.html
 
 Developed with Microsoft Visual Studio Express for Windows Phone 2012.
@@ -111,6 +112,6 @@ Version history
 ---------------
 
 * 1.1: Second public release of Chroma Key Demo
-  - Updated to the latest Nokia Imaging SDK version 1.1.177
+  - Updated to the latest Imaging SDK version 1.1.177
 
 * 1.0: First public release of Chroma Key Demo
