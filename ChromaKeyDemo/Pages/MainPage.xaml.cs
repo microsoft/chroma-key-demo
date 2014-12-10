@@ -12,7 +12,7 @@ using ChromaKeyDemo.Resources;
 using Microsoft.Devices;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Nokia.Graphics.Imaging;
+using Lumia.Imaging;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -21,6 +21,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using Windows.Phone.Media.Capture;
+using Lumia.Imaging.Transforms;
+using Lumia.Imaging.Compositing;
 
 namespace ChromaKeyDemo.Pages
 {

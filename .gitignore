@@ -1,0 +1,6 @@
+Bin/
+obj/
+*.suo
+packages/
+*.chm
+*.user
