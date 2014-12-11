@@ -61,7 +61,7 @@ namespace ChromaKeyDemo.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chroma Key Demo is a Nokia Developer example demonstrating the Nokia Imaging SDK chroma key filter..
+        ///   Looks up a localized string similar to Chroma Key Demo is an example demonstrating the Lumia Imaging SDK chroma key filter..
         /// </summary>
         public static string AboutPage_AboutRun_Text {
             get {
