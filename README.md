@@ -8,11 +8,9 @@ green backdrop canvas) and use the color distance slider to adjust the threshold
 of the color range to be made transparent. Tap on the lower modified viewfinder
 to toggle between a video background and a "transparent" background.
 
-This example application is hosted in GitHub:
-https://github.com/Microsoft/chroma-key-demo/
+This example application is hosted in [GitHub:](https://github.com/Microsoft/chroma-key-demo/)
 
-For more information on implementation visit Lumia Developer's Library:
-http://developer.nokia.com/Resources/Library/Lumia/nokia-imaging-sdk/sample-projects/chroma-key-demo.html
+For more information on implementation visit [Lumia Developer's Library:](http://dev.windows.com/en-us/featured/lumia)
 
 Developed with Microsoft Visual Studio Express for Windows Phone 2012.
 
