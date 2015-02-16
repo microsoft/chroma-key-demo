@@ -98,14 +98,6 @@ http://www.youtube.com/watch?v=nzgfOBTNye0. The original video is copyright of t
 Attribution 3.0 Unported (CC BY 3.0) license (http://creativecommons.org/licenses/by/3.0/).
 
 
-Downloads
----------
-
-| Project | Release | Download |
-| ------- | --------| -------- |
-| Chroma Key Demo | v1.1 | [chroma-key-demo-1.1.zip](https://github.com/Microsoft/chroma-key-demo/archive/v1.1.zip) |
-
-
 Version history
 ---------------
 
