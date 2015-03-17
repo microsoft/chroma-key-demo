@@ -10,7 +10,7 @@ to toggle between a video background and a "transparent" background.
 
 This example application is hosted in [GitHub:](https://github.com/Microsoft/chroma-key-demo/)
 
-For more information on implementation visit [Lumia Developer's Library:](http://dev.windows.com/en-us/featured/lumia)
+For more information on implementation visit [Lumia Developer's Library:](http://go.microsoft.com/fwlink/?LinkId=528371)
 
 Developed with Microsoft Visual Studio Express for Windows Phone 2012.
 
