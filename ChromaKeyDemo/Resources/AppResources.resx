@@ -150,7 +150,7 @@
     <value>about</value>
   </data>
   <data name="AboutPage_AboutRun_Text" xml:space="preserve">
-    <value>Chroma Key Demo is a Nokia Developer example demonstrating the Nokia Imaging SDK chroma key filter.</value>
+    <value>Chroma Key Demo is an example demonstrating the Lumia Imaging SDK chroma key filter.</value>
   </data>
   <data name="AboutPage_GuideRun_Text" xml:space="preserve">
     <value>Tap on the upper original viewfinder to select a chroma key color (for example a green backdrop canvas) and use the color distance slider to adjust the threshold of the color range to be made transparent. Tap on the lower modified viewfinder to toggle between a video background and a "transparent" background.</value>
