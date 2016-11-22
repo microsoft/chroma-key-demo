@@ -86,7 +86,7 @@ None.
 License
 -------
 
-See the license text file delivered with this project: https://github.com/Microsoft/chroma-key-demo/blob/master/License.txt
+See the license text file delivered with this project: https://github.com/Microsoft/chroma-key-demo/blob/master/Licence.txt
 
 
 Background video attribution
